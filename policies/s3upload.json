@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucketMultipartUploads",
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::<BUCKET_NAME>",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "<IP_WHITELIST>/32"
+                }
+            }
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::<BUCKET_NAME>/*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "<IP_WHITELIST>/32"
+                }
+            }
+        }
+    ]
+}

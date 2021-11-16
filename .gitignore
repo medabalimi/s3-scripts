@@ -1,1 +1,4 @@
+__pycache__
 .aws/*
+build
+build2
